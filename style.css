@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 250;
+
+  --fc-heading: hsla(var(--hue), 0%, 100%, 1);
+  --fc-heading-sm:hsla(var(--hue), 17%, 35%, 1);
+  --fc-text: hsla(var(--hue), 84%, 12%, 1);
+
+  --bg-header: hsla(218, 17%, 62%, 1);
+  --bg-body: hsla(var(--hue), 100%, 97%, 1);
+  --bg-range: hsla(var(--hue), 18%, 79%, 1);
+  --bg-h2:hsla(312, 91%, 96%, 1);
+
+
+  --ff-heading: 'Staatliches', cursive;
+  --ff-body: 'Palanquin', sans-serif;
+
+  font-size: 62.5%;
+  --fs-body: 1.6rem;
+  --fs-head: 4.8rem;
+  --fs-text: 2rem;
+}
+
+body {
+  font-family: var(--ff-body);
+  background: var(--bg-body);
+
+  color: var(--fc-text);
+
+  font-size: var(--fs-body);
+}
+
+.page {
+  max-width: 100rem;
+  margin: 0 auto;
+
+}
+
+header {
+  text-align: center;
+  background: var(--bg-header);
+  width: 100%;
+  
+}
+
+header img {
+  margin: 3.2rem auto;
+}
+
+header h1 {
+  color: var(--fc-heading);
+  background: var(--bg-range);
+
+  font-family: var(--ff-heading);
+  font-weight: 400;
+  font-size: var(--fs-head);
+  line-height: 3.4rem;
+
+  letter-spacing: 0.05em;
+
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+  padding: 0.8rem 8.6rem 0.7rem;
+
+  
+}
+
+header p {
+  color: var(--fc-heading);
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-text);
+  line-height: 2rem;
+
+  text-align: center; 
+
+  padding: 1.4rem 2rem;
+}
+
+main {
+  display: grid;
+  gap: 3.6rem;
+
+  padding: 2rem 3.2rem;
+
+}
+
+section {
+  display: grid;
+  gap: 3.6rem;
+}
+
+.card {
+  position: relative;
+
+  font-family: var(--ff-heading);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card img {
+
+  height: 40rem;
+
+  border-radius: 2rem;
+
+  object-fit: cover;
+
+  filter: brightness(0.5) saturate(1.5);
+
+  animation: downtop 700ms 350ms backwards;
+  
+}
+
+main> div:nth-child(5) {
+  display: none;
+}
+
+main > div:nth-child(6) {
+  display: none;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+  opacity: 0.3;
+  
+}
+
+.card h2 {
+  position: absolute;
+
+  top: 1.7rem;
+  right: 3.9rem;
+
+  border-radius: 2rem;
+
+  font-size: var(--fs-text);
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+  color: var(--fc-heading-sm);
+
+  background-color: var(--bg-h2);
+
+  padding: 0 2.4rem;
+
+  display: inline-flex;
+  align-items: center;
+  height: 3.8rem;
+
+  width: fit-content;
+
+  animation: topdown 700ms 600ms backwards;
+}
+
+footer {
+  opacity: 0;
+
+  color: hsla(232, 17%, 35%, 1);
+  font-family: sans-serif;
+
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+
+  text-align: center;
+}
+
+footer a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+@keyframes topdown {
+	0% {
+		opacity: 0;
+		transform: translateY(-15px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes downtop {
+	0% {
+		opacity: 0;
+		transform: translateY(15);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (min-width: 700px) {
+	.page {
+		max-width: 100%;
+
+		margin: 0 auto;
+	}
+
+	.container {
+		display: grid;
+		grid-template-columns: fr 2fr;
+		grid-template-rows: 46vh 46vh;
+	}
+
+	header {
+		width: 60rem;
+    height: 100vh;
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 1;
+		grid-row-end: 4;
+	}
+
+  header h1 {
+    padding: 3.1rem 7.3rem 3rem;
+  }
+
+  header p {
+    width: 50.5rem;
+    margin: auto;
+    padding: 3.2rem 5.1rem 0;
+  }
+
+	main {
+		overflow: auto;
+
+		background: var(--bg-primary);
+
+		padding-bottom: 8rem;
+
+		/*width: 90rem;*/
+		grid-column-start: 2;
+		grid-column-end: 3;
+		grid-row-start: 1;
+		grid-row-end: 3;
+	}
+
+	.card {
+    position:relative
+  }
+
+	.card img {
+		height: auto;
+		object-fit: cover;
+	}
+
+	section {
+		display: grid;
+		gap: 4rem;
+
+		grid-template-columns: 1fr 1fr 1fr;
+
+
+		grid-template-areas:
+			"A B C"
+			"D B F"
+			"D E F";
+	}
+
+	section div:nth-child(1) {
+		grid-area: A;
+	}
+
+	section div:nth-child(2) {
+		grid-area: B;
+	}
+
+	section div:nth-child(3) {
+		grid-area: C;
+	}
+
+	section div:nth-child(4) {
+		grid-area: D;
+	}
+
+	section div:nth-child(5) {
+		grid-area: E;
+	}
+
+	section div:nth-child(6) {
+		grid-area: F;
+	}
+
+	footer {
+		opacity: 1;
+
+    margin-bottom: 4.6rem;
+	}
+}
